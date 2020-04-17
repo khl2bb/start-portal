@@ -1,6 +1,5 @@
 package kr.ac.jejunu.user;
 
-import org.hamcrest.Matcher;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
@@ -17,7 +16,8 @@ public class UserDaoTests {
     public void get() throws SQLException, ClassNotFoundException {
         Integer id = 1;
 
-        UserDao userDao = new JejuUserDao();
+        ConnectionMaker connectionMaker = new JejuConnectionMaker();
+        UserDao userDao = new UserDao(connectionMaker);
         User user = userDao.get(id);
         assertThat(user.getId(), is(id));
         assertThat(user.getName(), is(name));
@@ -29,7 +29,8 @@ public class UserDaoTests {
         User user = new User();
         user.setName(name);
         user.setPassword(password);
-        UserDao userDao = new JejuUserDao();
+        ConnectionMaker connectionMaker = new JejuConnectionMaker();
+        UserDao userDao = new UserDao(connectionMaker);
         userDao.insert(user);
         //검증
         assertThat(user.getId(), greaterThan(0));
@@ -44,7 +45,8 @@ public class UserDaoTests {
     public void getHalla() throws SQLException, ClassNotFoundException {
         Integer id = 1;
 
-        UserDao userDao = new HallaUserDao();
+        ConnectionMaker connectionMaker = new HallaConnectionMaker();
+        UserDao userDao = new UserDao(connectionMaker);
         User user = userDao.get(id);
         assertThat(user.getId(), is(id));
         assertThat(user.getName(), is(name));
@@ -56,7 +58,8 @@ public class UserDaoTests {
         User user = new User();
         user.setName(name);
         user.setPassword(password);
-        UserDao userDao = new HallaUserDao();
+        ConnectionMaker connectionMaker = new HallaConnectionMaker();
+        UserDao userDao = new UserDao(connectionMaker);
         userDao.insert(user);
         //검증
         assertThat(user.getId(), greaterThan(0));
@@ -64,7 +67,6 @@ public class UserDaoTests {
         User insertedUser = userDao.get(user.getId());
         assertThat(insertedUser.getName(), is(name));
         assertThat(insertedUser.getPassword(), is(password));
-
     }
 
 }
