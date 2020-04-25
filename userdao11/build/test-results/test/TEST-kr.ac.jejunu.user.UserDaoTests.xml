@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="kr.ac.jejunu.user.UserDaoTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-04-17T13:35:59" hostname="jinoo-PC" time="0.68">
+<testsuite name="kr.ac.jejunu.user.UserDaoTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-04-25T04:43:44" hostname="jinoo-PC" time="0.711">
   <properties/>
-  <testcase name="insert()" classname="kr.ac.jejunu.user.UserDaoTests" time="0.659"/>
-  <testcase name="get()" classname="kr.ac.jejunu.user.UserDaoTests" time="0.02"/>
+  <testcase name="insert()" classname="kr.ac.jejunu.user.UserDaoTests" time="0.687"/>
+  <testcase name="get()" classname="kr.ac.jejunu.user.UserDaoTests" time="0.023"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
