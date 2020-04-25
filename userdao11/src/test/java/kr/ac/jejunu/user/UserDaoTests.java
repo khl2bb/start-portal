@@ -27,8 +27,6 @@ public class UserDaoTests {
     public void get() throws SQLException, ClassNotFoundException {
         Integer id = 1;
 
-        DaoFactory daoFactory = new DaoFactory();
-        UserDao userDao = daoFactory.userDao();
         User user = userDao.get(id);
         assertThat(user.getId(), is(id));
         assertThat(user.getName(), is(name));
