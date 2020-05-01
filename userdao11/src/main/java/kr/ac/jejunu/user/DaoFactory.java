@@ -30,8 +30,17 @@ public class DaoFactory {
     // 스프링 bean은 스프링이 new 해주는 오브젝트 인스턴스를 bean이라 한다.
     @Bean
     public UserDao userDao() { // ctrl + B 하면 usage 문서로 바로 에디터 이동 ctrl + 좌클릭 으로도 가능
-        return new UserDao(dataSource());
+
+        return new UserDao(jdbcContext());
     }
+
+    @Bean
+    public JdbcContext jdbcContext() {
+        return new JdbcContext(dataSource());
+        // 이녀석이 data dependency를 가지게
+        // 이렇게 의존성 관계가 정립이 되면 지금 userdao는
+    }
+
     @Bean
     public DataSource dataSource() {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
