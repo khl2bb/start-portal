@@ -80,3 +80,5 @@ public class UserDaoTests {
         assertThat(deletedUser, IsNull.nullValue());
     }
 }
+
+//지금까지 리팩토링을 했는데 이것은 jdbcTemplate로 라이브러리로 있는 것들을 만들어 본 것이다.

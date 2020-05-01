@@ -3,6 +3,7 @@ package kr.ac.jejunu.user;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.sql.DataSource;
@@ -35,8 +36,8 @@ public class DaoFactory {
     }
 
     @Bean
-    public JdbcContext jdbcContext() {
-        return new JdbcContext(dataSource());
+    public JdbcTemplate jdbcContext() {
+        return new JdbcTemplate(dataSource());
         // 이녀석이 data dependency를 가지게
         // 이렇게 의존성 관계가 정립이 되면 지금 userdao는
     }
