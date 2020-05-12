@@ -27,7 +27,11 @@ public class DaoFactory {
 
     @Bean // new를 해줘서 디펜덴시를 담아서 인스턴스를 반환하는것, 스프링이 해주는것
     public UserDao userDao() {
-        return new UserDao(dataSource());
+        return new UserDao(jdbcContext());
+    }
+
+    public JdbcContext jdbcContext() {
+        return new JdbcContext(dataSource());
     }
 
     @Bean
