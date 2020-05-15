@@ -11,6 +11,7 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
 //import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericGroovyApplicationContext;
 import org.springframework.context.support.StaticApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -47,7 +48,8 @@ public class UserDaoTests {
 //        beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(new RuntimeBeanReference("jdbcContext"));
 //        applicationContext.registerBeanDefinition("userDao", beanDefinition);
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("daoFactory.xml");
+//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("daoFactory.xml");
+        ApplicationContext applicationContext = new GenericGroovyApplicationContext("daoFactory.groovy");
 
         userDao = applicationContext.getBean("userDao", UserDao.class);
     } // 4-1 10:12
