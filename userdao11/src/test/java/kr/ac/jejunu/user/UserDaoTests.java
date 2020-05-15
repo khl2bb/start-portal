@@ -10,6 +10,7 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
 //import org.springframework.context.ApplicationContext;
 //import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericGroovyApplicationContext;
 import org.springframework.context.support.StaticApplicationContext;
@@ -30,7 +31,7 @@ public class UserDaoTests {
 
     @BeforeAll
     public static void setup() throws ClassNotFoundException {
-//        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(DaoFactory.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext("kr.ac.jejunu.user");
 //        StaticApplicationContext applicationContext = new StaticApplicationContext();
 //
 //        BeanDefinition dataSourceBeanDefinition = new RootBeanDefinition(SimpleDriverDataSource.class);
@@ -49,7 +50,7 @@ public class UserDaoTests {
 //        applicationContext.registerBeanDefinition("userDao", beanDefinition);
 
 //        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("daoFactory.xml");
-        ApplicationContext applicationContext = new GenericGroovyApplicationContext("daoFactory.groovy");
+//        ApplicationContext applicationContext = new GenericGroovyApplicationContext("daoFactory.groovy");
 
         userDao = applicationContext.getBean("userDao", UserDao.class);
     } // 4-1 10:12
