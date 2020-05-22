@@ -1,9 +1,13 @@
 package kr.ac.jejunu.user;
 
+import org.springframework.beans.factory.annotation.Configurable;
+
+@Configurable
 public class User {
     private Integer id;
     private String name;
     private String password;
+    private UserDao userDao;
 
     public Integer getId() {
         return id;
