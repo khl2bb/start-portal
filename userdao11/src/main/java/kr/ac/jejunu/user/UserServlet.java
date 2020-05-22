@@ -26,7 +26,7 @@ public class UserServlet extends GenericServlet {
     @SneakyThrows
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        User user = userDao.get(1);
+        User user = userDao.get(50);
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("<html>");
         stringBuffer.append("<h1>");
