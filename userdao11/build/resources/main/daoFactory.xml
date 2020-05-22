@@ -14,7 +14,8 @@
         <property name="password" value="${db.password}" />
     </bean>
     <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <constructor-arg ref="dataSource"/>
+        <property name="dataSource" ref="dataSource"/>
+<!--        <constructor-arg ref="dataSource"/>-->
     </bean>
     <bean name="userDao" class="kr.ac.jejunu.user.UserDao">
         <constructor-arg ref="jdbcTemplate"/>
