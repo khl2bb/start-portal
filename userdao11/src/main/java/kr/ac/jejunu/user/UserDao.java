@@ -17,7 +17,7 @@ public class UserDao {
 //        this.jdbcTemplate = jdbcTemplate;
 //    }
 
-    public User get(Integer id) throws ClassNotFoundException {
+    public User get(Integer id){
         Object[] params = new Object[]{id};
         String sql = "select id, name, password from userinfo where id = ?";
         return jdbcTemplate.query(sql, params, rs -> {

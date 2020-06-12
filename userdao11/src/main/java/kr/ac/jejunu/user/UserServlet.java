@@ -7,9 +7,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 @Controller("/userServlet")
+@WebServlet(urlPatterns = "/hello")
 public class UserServlet extends GenericServlet {
     @Autowired
     private UserDao userDao;
