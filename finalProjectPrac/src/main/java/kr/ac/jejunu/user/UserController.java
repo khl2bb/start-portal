@@ -28,6 +28,14 @@ public class UserController {
         return userDao.get(id);
     }
 
+    @RequestMapping("/index")
+    public void indexTest() {
+    }
+
+    @RequestMapping("/index.html")
+    public void indexHtmlTest() {
+    }
+
     @RequestMapping("/exception")
     public void exception() {
         throw new RuntimeException("어이쿠!");

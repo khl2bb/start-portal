@@ -17,6 +17,6 @@
 %>
 <html>
 <h1>
-    Hello <%=user.getName()%>!!!
+    Hello it's user.jsp <br> <%=user.getName()%>!!!
 </h1>
 </html>
