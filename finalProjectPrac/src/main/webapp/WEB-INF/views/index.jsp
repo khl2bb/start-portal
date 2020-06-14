@@ -1,4 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<link rel="stylesheet" type="text/css" href="/resources/css/todos.css">
+<script src="/resources/js/index.js"></script>
+<script src="../../resources/js/todo-model.js"></script>
+<script src="../../resources/js/html-render.js"></script>
+<script src="../../resources/js/form-input.js"></script>
+<script src="../../resources/js/data-manager.js"></script>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -28,11 +34,7 @@
   </li>
 </ul> -->
 </div>
-<script src="index.js"></script>
-<script src="todo-model.js"></script>
-<script src="html-render.js"></script>
-<script src="form-input.js"></script>
-<script src="data-manager.js"></script>
+
 
 </body>
 </html>

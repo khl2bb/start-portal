@@ -32,9 +32,9 @@ public class UserController {
     public void indexTest() {
     }
 
-    @RequestMapping("/index.html")
-    public void indexHtmlTest() {
-    }
+//    @RequestMapping("")
+//    public void indexHtmlTest() {
+//    }
 
     @RequestMapping("/exception")
     public void exception() {

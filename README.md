@@ -33,5 +33,13 @@
 
 1.  기존 todo 사이트를 넣어보기, 컨트롤러로 url만 연결해주기
 2.  html과 js css 연결 찾아보기
+    > 연결법을 찾았습니다. 출처: 개인블로그
+    > https://m.blog.naver.com/PostView.nhn?blogId=reilove333&logNo=220744058086&proxyReferer=https:%2F%2Fwww.google.com%2F, https://m.blog.naver.com/PostView.nhn?blogId=javaking75&logNo=220074858236&proxyReferer=https:%2F%2Fwww.google.com%2F
+    > 대부분 xml 기반의 파일에서 스프링 세팅을 하는 것으로 해결하네요. 수업에서는 annotation 기반으로 다 바꾸었기 때문에 xml파일을 만들지 않고 하는 방법을 찾아보려구요.
 
-<hr>
+- 1. dispatcher-servlet.xml 안에 선언
+     <mvc:resources mapping="/resource/\*\*" location="/WEB-INF/view/" />
+- 2. jsp 파일에서 위의 "/resource/" 형태로 접근하도록 작성
+     <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+     <script src="<c:url value="/resources/js/jquery.1.10.2.min.js" />"></script>
+  <hr>

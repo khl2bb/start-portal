@@ -17,7 +17,7 @@ import java.util.List;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        configurer.mediaType("js", MediaType.APPLICATION_JSON).mediaType("x", MediaType.APPLICATION_XML);
+        configurer.mediaType("resources/js", MediaType.APPLICATION_JSON).mediaType("x", MediaType.APPLICATION_XML);
     }
 
     @Override
