@@ -78,3 +78,6 @@ commit 로그의 내용을 기반으로 본인이 직접 개발했는지를 판�
 - jsp를 다루는 것부터 익혀야겠다.
 - jsp 사이트를 따라하려 하니 조금 옛날 버전이어서 https://www.youtube.com/watch?v=MtxFWczSFqU&list=PLRx0vPvlEmdAZv_okJzox5wj2gG_fNh_6&index=2
 - 스프링 책을 구해서 보고 진행 해봐야겠다.
+- 스프링 부트를 배워서 써봐야겠습니다. https://private.tistory.com/36?category=655784 (블로그)
+- 2020.01 블로그 https://velog.io/@emawlrdl/Spring-project-%EC%A0%9C%EC%9E%91-%EA%B3%BC%EC%A0%95-8yk5n8bogp
+- 자바스크립트는 MDN에 검색하면서 공부했는데, 스프링은 어떤지 찾아봐야겠다.
