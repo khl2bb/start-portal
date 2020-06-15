@@ -10,6 +10,27 @@
 
 ## 기말고사 프로젝트
 
+'''
+기말 프로젝트 공지드립니다.
+SpringBoot, Spring MVC, JPA, Mysql 을 활용하여 개인이 스스로 기획해서 한번 만들어보세요.
+어떤 내용이던 관계없습니다.
+UI 는 Rest Api + JavaScript 를 활용해도 좋고, UI Template을 활용해도 좋습니다.
+결과는 6월 26일 강의실에서 실제 구현되는 환경을 발표해주세요.
+프로젝트 진행하실때 commit 로그를 자주 남겨주세요.
+commit 로그의 내용을 기반으로 본인이 직접 개발했는지를 판단합니다.
+지금부터 준비하셔야 6월 26일 결과물을 볼 수 있을거에요.
+성적 기준 알려드립니다.
+강의 실습 진도 (50%)
+프로젝트 (50%)
+프로젝트 점수는 상대평가로 진행합니다. 프로젝트 난이도와 수행결과 및 코드 퀄리티를 상대평가로 평가합니다.
+여러분들이 담합하여 난이도 조율? 하셔도 관계없습니다. ㅎ
+학점은 정상적으로 모두(프로젝트까지) 따라오셨다면 B0 부터 학점이 나가게 되고, 정상적으로 모두 따라온 학생들을 기준으로 50%(A+ 또는 A0) 50\$​
+아이고 다쓰기전에 리턴되었네요..
+학점은 정상적으로 모두(프로젝트까지) 따라오셨다면 B0 부터 학점이 나가게 되고, 정상적으로 모두 따라온 학생들을 기준으로 50%(A+ 또는 A0) 50%(B+ 또는 B0) 로 나갈거구요.. 프로젝트 미제출시 C 이하로 평가됩니다.
+프로젝트 평가는 6월 26일 오후 4시에 강의실에서 뵙는걸로 하고요.. 1:1 면담 방식으로 진행할거에요.
+오프라인으로 평가 면담이 어려우신분은 말씀주시면 6월 26일 이전에 날 잡아서 google meet 로 화상 면담 진행하겠습니다.
+'''
+
 <hr>
 
 ### 2020년 6월 13일 토요일
@@ -43,3 +64,17 @@
      <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
      <script src="<c:url value="/resources/js/jquery.1.10.2.min.js" />"></script>
   <hr>
+
+### 2020년 6월 15일 월요일
+
+- js, css 연결, annotation resource mapping 사용법 찾기
+- 스프링 resource annotation 사용법을 찾아봅시다. https://gmlwjd9405.github.io/2018/12/02/ spring-annotation-types.html, https://freehoon.tistory.com/84, https://cornswrold.tistory.com/8
+- 블로그 참고 스프링 부트를 사용해서 todo사이트를 만들어볼까? https://alwayspr.tistory.com/33 첨부터 다시 시작
+- 오픈소스를 활용할까 https://todobackend.com/
+- 나만의 메모장을 만들기보다는 지금은 시간도 부족하고 아는 것도 많지 않으니까, todo 오픈 소스를 참고하면서 공부하듯이 플젝을 해야겠다.
+- todo 오픈 소스를 봐도 전에 봤던 코드들이랑 조금씩 설정이 달라서 따라하기가 쉽지 않았다.
+- 참고한 todo 오픈 소스 https://github.com/jcsantosbr/todo-backend-spring4-java8
+- todo 말고 userDao를 한 번 보았으니까, userDao나 로그인, 아니면 게시판 같은 사이트를 해보자.
+- jsp를 다루는 것부터 익혀야겠다.
+- jsp 사이트를 따라하려 하니 조금 옛날 버전이어서 https://www.youtube.com/watch?v=MtxFWczSFqU&list=PLRx0vPvlEmdAZv_okJzox5wj2gG_fNh_6&index=2
+- 스프링 책을 구해서 보고 진행 해봐야겠다.
