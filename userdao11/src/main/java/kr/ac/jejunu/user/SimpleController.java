@@ -14,7 +14,7 @@ public class SimpleController implements Controller { // Ctrl + B
     private final UserDao userDao;
     @Override
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        User user = userDao.get(Integer.valueOf(request.getParameter("id")));
+        User user = userDao.findById(Integer.valueOf(request.getParameter("id"))).get();
         ModelAndView modelAndView = new ModelAndView("user");
         modelAndView.addObject("user", user);
         return modelAndView;
