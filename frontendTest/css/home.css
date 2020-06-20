@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+div {
+    margin: 0 auto;
+}
+
+button {
+    background-color: silver;
+    width:100px;
+    
+}
+
+#background {
+    width: 600px;
+    height: 1600px;
+    background-color: silver;
+    font-size: 24px;
+}
+
+textarea {
+    width: 500px;
+    height: 500px;
+    font-size: 24px;
+}
