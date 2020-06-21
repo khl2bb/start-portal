@@ -1,16 +1,16 @@
 const $saveButton = document.getElementById('saveButton');
 
 function log(str) {
-  console.log(str);
+    console.log(str);
 }
 function checkKey(e) {
-  if (e.key === 's') {
-    $saveButton.click();
-  }
+    if (e.key === 's') {
+        $saveButton.click();
+    }
 }
 function save() {
-  log(4);
-  $saveButton.style.backgroundColor = black;
+    log(4);
+    $saveButton.style.backgroundColor = black;
 }
 
 window.addEventListener('keypress', checkKey);

@@ -113,3 +113,7 @@ commit 로그의 내용을 기반으로 본인이 직접 개발했는지를 판�
 - 기본 html 파일 맵핑 8caf19d
 - 프론트앤드 인터페이스 설계 d69ac59
 - 메모를 저장하기 위한 Data Transfer Object 생성
+- MemoDto, MemoEntity 생성
+- Memo Data Transfer Object와 MemoEntity를 만들었습니다
+- id, title, tag, content 생성시간, 수정시간 정도로 구성했습니다.
+- @Entity @Table 어노테이션을 위해 javax.persistence를 다운로드했습니다.
