@@ -3,10 +3,10 @@
 <!--xmlns:th="http://www.w3.org/1999/xhtml 이 부분은 인텔리제이 thymeleaf 사용 시 삽입해야 되는 듯-->
 <head>
     <meta charset="UTF-8">
-    <title>내 게시판</title>
+    <title>메모 목록</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/home.css}">
-<!--    th는 thymeleaf 속성 @{}는 애플리케이션 설치된 곳을 기준으로 하는 상대경로 입력가능-->
+    <link rel="stylesheet" th:href="@{/home.css}">
+    <!--    th는 thymeleaf 속성 @{}는 애플리케이션 설치된 곳을 기준으로 하는 상대경로 입력가능-->
 </head>
 <body>
 
@@ -19,10 +19,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/">홈 <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/list">메모 목록</a>
             </li>
             <li class="nav-item dropdown">
@@ -44,23 +44,40 @@
     </div>
 </nav>
 
-
 <div id="background">
-    <div>
-        <div>안녕 내 게시판</div>
+<table>
+    <thead>
+    <tr>
+        <th class="one wide">번호</th>
+        <th class="ten wide">제목</th>
+        <th class="two wide">태그</th>
+        <th class="three wide">작성일</th>
+    </tr>
+    </thead>
 
-        <form action="/post" method="post">
-            제목 : <input type="text" name="title" /> <br />
-            태그 : <input type="text" name="tag" /> <br />
-            <button id="saveButton">저장!!!</button><br />
-            <textarea name="content"></textarea>
-
-        </form>
-
-
-    </div>
+    <tbody>
+    <!-- CONTENTS !-->
+    <tr th:each="memo : ${memoList}">
+        <td>
+            <span th:text="${memo.id}"></span>
+        </td>
+        <td>
+            <a th:href="@{'/post/' + ${memo.id}}">
+                <span th:text="${memo.title}"></span>
+<!--                memo.title의 값을 span 태그의 text값으로 설정-->
+            </a>
+        </td>
+        <td>
+            <span th:text="${memo.tag}"></span>
+        </td>
+        <td>
+            <span th:text="${#temporals.format(memo.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </div>
 
-<script src="./js/save.js"></script>
+
 </body>
 </html>

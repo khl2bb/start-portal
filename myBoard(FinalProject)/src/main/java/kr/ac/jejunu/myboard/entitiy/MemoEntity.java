@@ -13,7 +13,7 @@ import javax.persistence.*;
 // setter 대신 builder 사용 ,,, @Data 사용도 선택지
 @Entity // 객체와 테이블을 맵핑 할 엔티티 명시, to JPA
 @Table(name = "memo") // 엔티티 클래스와 테이블 정보 명시, 테이블 명, default는 엔티티 이름 테이블 명 맵핑
-public class MemoEntity {
+public class MemoEntity extends TimeEntity{
 
     @Id // 기본 키
     @GeneratedValue(strategy= GenerationType.IDENTITY) // 기본 키를 대체 키로 사용 기본 키 값 생성 전략
