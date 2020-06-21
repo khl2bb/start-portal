@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>내 게시판</title>
-    <link rel="stylesheet" type="text/css" href="./css/home.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+  </head>
+  <body>
     <div id="background">
-        <div>Kakao Ara In</div>
-        <div>
-            <div>안녕 내 게시판</div>
-            <button id="saveButton">저장!!!</button><br>
-            <textarea name="content"></textarea>
-        </div>
+      <div>Kakao Ara In</div>
+      <div>
+        <div>안녕 내 게시판</div>
+
+        <form action="/post" method="post">
+          제목 : <input type="text" name="title" /> <br />
+          태그 : <input type="text" name="tag" /> <br />
+          <textarea name="content"></textarea>
+          <button id="saveButton">저장!!!</button><br />
+        </form>
+      </div>
     </div>
 
-<script src="./js/save.js"></script>
-</body>
+    <script src="./js/save.js"></script>
+  </body>
 </html>

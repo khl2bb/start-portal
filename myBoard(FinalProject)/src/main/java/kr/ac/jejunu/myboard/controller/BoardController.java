@@ -14,4 +14,10 @@ public class BoardController {
         return "home.html";
     }
 
+    @PostMapping("/post")
+    public String write() {
+
+        return "redirect:/";
+    }
+
 }
