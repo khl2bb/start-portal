@@ -105,6 +105,7 @@ commit 로그의 내용을 기반으로 본인이 직접 개발했는지를 판�
 - 강의 복습, jsp js 불러오기 테스트 1aa9501
 
 <hr>
+
 <hr>
 
 ### 2020년 6월 21일 일요일
@@ -112,8 +113,22 @@ commit 로그의 내용을 기반으로 본인이 직접 개발했는지를 판�
 - 프로젝트 생성 87ef970
 - 기본 html 파일 맵핑 8caf19d
 - 프론트앤드 인터페이스 설계 d69ac59
+<hr>
+
 - 메모를 저장하기 위한 Data Transfer Object 생성
+<hr>
+
 - MemoDto, MemoEntity 생성
 - Memo Data Transfer Object와 MemoEntity를 만들었습니다
 - id, title, tag, content 생성시간, 수정시간 정도로 구성했습니다.
 - @Entity @Table 어노테이션을 위해 javax.persistence를 다운로드했습니다.
+<hr>
+
+- 주석 추가하면서 검토하고 공부하기
+- MemoRepository로 JpaReposiroty 인터페이스 상속
+- MemoService로  서비스 계층, save 저장 기능 구현 준비
+<hr>
+
+- 컨트롤러에 memoService.savePost(memoDto); 를 통해서
+- DB에 정상적으로 저장되는 것을 확인했습니다.
+- 근데 생성시각 수정시각이 잘 기입이 안되는 것 같아서 차차 수정하겠습니다.

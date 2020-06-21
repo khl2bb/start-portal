@@ -18,5 +18,5 @@ public class MemoService {
         return memoRepository.save(boardDto.toEntity()).getId();
         //repository.save()는 JpaRepository에 정의된 매소드, DB에 INSERT, UPDATE를 담당, 매개변수로 Entity 전달
     }
-    
+
 }
