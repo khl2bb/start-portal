@@ -24,7 +24,7 @@ public class BoardController {
     public String save(MemoDto memoDto) { // .savePost() 사용해서, 저장하기
         memoService.savePost(memoDto);
 
-        return "redirect:/"; // 리턴 값으로 리다이렉트
+        return "redirect:/list"; // 리턴 값으로 리다이렉트
     }
 
     @GetMapping("/list")
@@ -56,6 +56,13 @@ public class BoardController {
     @PostMapping("/post/edit/{no}")
     public String update(MemoDto memoDTO) { // Put 사용, update 쿼리, savePost 사용
         memoService.savePost(memoDTO);
+
+        return "redirect:/list";
+    }
+
+    @PostMapping("/post/{no}")
+    public String delete(@PathVariable("no") Long no) { // delete 맵핑,
+        memoService.deletePost(no);
 
         return "redirect:/list";
     }

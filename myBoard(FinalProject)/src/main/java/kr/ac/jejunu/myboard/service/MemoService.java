@@ -44,8 +44,8 @@ public class MemoService {
 
     @Transactional
     public MemoDto getPost(Long id) { // 메모 자세히 보기 기능
-        Optional<MemoEntity> memoEntityWrapper = memoRepository.findById(id);
-        MemoEntity memoEntity = memoEntityWrapper.get();
+        Optional<MemoEntity> memoEntityWrapper = memoRepository.findById(id); // PK값을 where 조건으로, JpaRepository 인터페이스 있음
+        MemoEntity memoEntity = memoEntityWrapper.get(); // 반환 값은이 Optional 타입일 때, 엔티티를 빼오려면 이렇게 get() 메소드 사용
 
         MemoDto memoDTO = MemoDto.builder()
                 .id(memoEntity.getId())
@@ -57,5 +57,11 @@ public class MemoService {
 
         return memoDTO;
     }
+
+    @Transactional
+    public void deletePost(Long id) { // 삭제 기능
+        memoRepository.deleteById(id); // PK 값을 where 조건으로 데이터를 삭제하기 위한 메서드, JpaRepository 인터페이스에 정의되어 있음
+    }
+
 
 }

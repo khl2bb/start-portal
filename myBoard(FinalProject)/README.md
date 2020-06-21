@@ -151,3 +151,9 @@ commit 로그의 내용을 기반으로 본인이 직접 개발했는지를 판�
 post/edit/id 로 가게 되고 post/edit/id로 가면 메모 작성 공간으로 가고, 메모 내용을 불러오게 된다.
 거기서 작업하고 수정을 누르면 memoService.savePost() 가 작동되고
 이미 DB에 존재하는 id 여서 update(수정)으로 처리된다.
+<hr>
+
+- 메모 삭제 기능 완료
+- MemoService에서 deletePost 를 통해 삭제
+- boardRepository 기능을 이용해 간단하게 구현.
+- boardRepository.deleteById(id);
