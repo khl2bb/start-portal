@@ -5,7 +5,7 @@ div {
 }
 
 button {
-    background-color: silver;
+    background-color: #95a5a6;
     width:100px;
 
 }
@@ -13,8 +13,9 @@ button {
 #background {
     width: 600px;
     height: 1600px;
-    background-color: silver;
+    background-color: #ecf0f1;
     font-size: 24px;
+    margin: 0 auto;
 }
 
 textarea {
@@ -24,6 +25,7 @@ textarea {
 }
 
 table {
+    text-align: center;
     border-collapse: collapse;
 }
 

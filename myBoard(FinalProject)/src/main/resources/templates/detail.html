@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
-<!--xmlns:th="http://www.w3.org/1999/xhtml 이 부분은 인텔리제이 thymeleaf 사용 시 삽입해야 되는 듯-->
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>메모 목록</title>
+    <title>메모</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/home.css}">
-    <!--    th는 thymeleaf 속성 @{}는 애플리케이션 설치된 곳을 기준으로 하는 상대경로 입력가능-->
 </head>
 <body>
 
-<!--bootstrap에서 가져온 헤더, 네비게이션 바-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Kakao Ara In</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,10 +16,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/">홈 <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/list">메모 목록</a>
             </li>
             <li class="nav-item dropdown">
@@ -45,39 +42,35 @@
 </nav>
 
 <div id="background">
-<table>
-    <thead>
-    <tr>
-        <th class="one wide">번호</th>
-        <th class="ten wide">제목</th>
-        <th class="two wide">태그</th>
-        <th class="three wide">작성일</th>
-    </tr>
-    </thead>
+<h2 th:text="${memoDto.title}"></h2>
+<p th:inline="text">작성일 : [[${#temporals.format(memoDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
+<!--th:inline 을 통해 변수값을 삽입-->
 
-    <tbody>
-    <!-- CONTENTS !-->
-    <tr th:each="memo : ${memoList}">
-        <td>
-            <span th:text="${memo.id}"></span>
-        </td>
-        <td>
-            <a th:href="@{'/post/' + ${memo.id}}">
-                <span th:text="${memo.title}"></span>
-<!--                memo.title의 값을 span 태그의 text값으로 설정-->
-            </a>
-        </td>
-        <td>
-            <span th:text="${memo.tag}"></span>
-        </td>
-        <td>
-            <span th:text="${#temporals.format(memo.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<p th:text="${memoDto.content}"></p>
+
+<!-- 수정/삭제 -->
+<div>
+    <a th:href="@{'/post/edit/' + ${memoDto.id}}">
+        <button>수정</button>
+    </a>
+
+    <form id="delete-form" th:action="@{'/post/' + ${memoDto.id}}" method="post">
+        <input type="hidden" name="_method" value="delete"/>
+<!--        RESTful API 작성을 위해 hiddenHttpMethodFilter를 이용. form 태그의 method는 post이지만, 실제로는 컨트롤러에서 delete로 매핑이됩니다-->
+        <button id="delete-btn">삭제</button>
+    </form>
 </div>
+</div>
+<!-- 변수 셋팅 -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var boardDto = /*[[${boardDto}]]*/ "";
+    /*]]>*/
 
+    // JS에서 Java 변수를 사용하기 위한 방식, 개발자도구 콘솔창에서 memoDto 확인 가능
+</script>
 
+<!-- script -->
+<script th:inline="javascript" th:src="@{/js/memo.js}"></script>
 </body>
 </html>

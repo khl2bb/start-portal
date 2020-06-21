@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor // Repository 주입을 위해
 @Service // 서비스 계층 명시
@@ -22,7 +23,7 @@ public class MemoService {
     }
 
     @Transactional
-    public List<MemoDto> getMemolist() {
+    public List<MemoDto> getMemolist() { // 메모 조회, getMemoList
         List<MemoEntity> memoEntities = memoRepository.findAll();
         List<MemoDto> memoDtoList = new ArrayList<>();
 
@@ -39,6 +40,22 @@ public class MemoService {
         }
 
         return memoDtoList;
+    }
+
+    @Transactional
+    public MemoDto getPost(Long id) { // 메모 자세히 보기 기능
+        Optional<MemoEntity> memoEntityWrapper = memoRepository.findById(id);
+        MemoEntity memoEntity = memoEntityWrapper.get();
+
+        MemoDto memoDTO = MemoDto.builder()
+                .id(memoEntity.getId())
+                .title(memoEntity.getTitle())
+                .tag(memoEntity.getTag())
+                .content(memoEntity.getContent())
+                .createdDate(memoEntity.getCreatedDate())
+                .build();
+
+        return memoDTO;
     }
 
 }

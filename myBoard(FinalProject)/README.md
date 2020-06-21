@@ -139,3 +139,8 @@ commit 로그의 내용을 기반으로 본인이 직접 개발했는지를 판�
 - 부트스트랩 css를 조금 가져왔습니다.
 - html을 조금 수정 했습니다.
 - 저번 커밋에서 시간이 제대로 입력이 안 되었는데, timeEnitiy를 memoEntity가 상속하는 것으로 해결하였습니다.
+<hr>
+
+- detail.html에서 메모를 하나씩 살펴보는 기능입니다.
+- controller 에서 detail 부분에서 맵핑을 했구요
+- MemoService 에서는 getPost를 추가했습니다.

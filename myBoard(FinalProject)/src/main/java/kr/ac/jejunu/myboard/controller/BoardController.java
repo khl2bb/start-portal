@@ -35,5 +35,13 @@ public class BoardController {
         return "memolist.html";
     }
 
+    @GetMapping("/post/{no}")
+    public String detail(@PathVariable("no") Long no, Model model) {
+        MemoDto memoDTO = memoService.getPost(no);
+
+        model.addAttribute("memoDto", memoDTO);
+        return "detail.html";
+    }
+
 
 }
