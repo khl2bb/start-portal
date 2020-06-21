@@ -28,15 +28,7 @@ public class MemoService {
         List<MemoDto> memoDtoList = new ArrayList<>();
 
         for ( MemoEntity memoEntity : memoEntities) {
-            MemoDto memoDTO = MemoDto.builder()
-                    .id(memoEntity.getId())
-                    .title(memoEntity.getTitle())
-                    .tag(memoEntity.getTag())
-                    .content(memoEntity.getContent())
-                    .createdDate(memoEntity.getCreatedDate())
-                    .build();
-
-            memoDtoList.add(memoDTO);
+            memoDtoList.add(this.convertEntityToDto(memoEntity));
         }
 
         return memoDtoList;
@@ -47,20 +39,36 @@ public class MemoService {
         Optional<MemoEntity> memoEntityWrapper = memoRepository.findById(id); // PK값을 where 조건으로, JpaRepository 인터페이스 있음
         MemoEntity memoEntity = memoEntityWrapper.get(); // 반환 값은이 Optional 타입일 때, 엔티티를 빼오려면 이렇게 get() 메소드 사용
 
-        MemoDto memoDTO = MemoDto.builder()
+        return this.convertEntityToDto(memoEntity);
+    }
+
+    @Transactional
+    public void deletePost(Long id) { // 삭제 기능
+        memoRepository.deleteById(id); // PK 값을 where 조건으로 데이터를 삭제하기 위한 메서드, JpaRepository 인터페이스에 정의되어 있음
+    }
+
+    @Transactional
+    public List<MemoDto> searchPosts(String keyword) { // Repository 검색 결과 받아와서 수행, Dto 객체 전달
+        List<MemoEntity> memoEntities = memoRepository.findByTitleContaining(keyword);
+        List<MemoDto> memoDtoList = new ArrayList<>();
+
+        if (memoEntities.isEmpty()) return memoDtoList;
+
+        for (MemoEntity memoEntity : memoEntities) {
+            memoDtoList.add(this.convertEntityToDto(memoEntity));
+        }
+
+        return memoDtoList;
+    }
+
+    private MemoDto convertEntityToDto(MemoEntity memoEntity) { //  Entity를 Dto로 변환하는 작업 함수화
+        return MemoDto.builder()
                 .id(memoEntity.getId())
                 .title(memoEntity.getTitle())
                 .tag(memoEntity.getTag())
                 .content(memoEntity.getContent())
                 .createdDate(memoEntity.getCreatedDate())
                 .build();
-
-        return memoDTO;
-    }
-
-    @Transactional
-    public void deletePost(Long id) { // 삭제 기능
-        memoRepository.deleteById(id); // PK 값을 where 조건으로 데이터를 삭제하기 위한 메서드, JpaRepository 인터페이스에 정의되어 있음
     }
 
 

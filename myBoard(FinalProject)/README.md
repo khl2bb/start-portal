@@ -157,3 +157,11 @@ post/edit/id 로 가게 되고 post/edit/id로 가면 메모 작성 공간으로
 - MemoService에서 deletePost 를 통해 삭제
 - boardRepository 기능을 이용해 간단하게 구현.
 - boardRepository.deleteById(id);
+<hr>
+
+- 간단한 제목 기반 검색 기능 완료
+  > JpaRepository 메소드로 간단히 구현, memoRepository에 검색 메소드, MemoService에 searchPosts(검색 키워드 받아와서 실행)
+- 검색창은 nav 헤더 바에 넣음
+- 검색 결과 보여주는 view는 momoList.html 재활용
+- Entity를 Dto로 변환하는 부분 함수화
+  > 계속 반복 되어서 convertEntityToDto함수로 만들어서 중복 코드 줄임(MemoService.java)         

@@ -67,4 +67,13 @@ public class BoardController {
         return "redirect:/list";
     }
 
+    @GetMapping("/search")
+    public String search(@RequestParam(value="keyword") String keyword, Model model) { //keyword를 받는 search()
+        List<MemoDto> memoDtoList = memoService.searchPosts(keyword); // keyword로 검색
+
+        model.addAttribute("memoList", memoDtoList);
+
+        return "/memoList.html";
+    }
+
 }
