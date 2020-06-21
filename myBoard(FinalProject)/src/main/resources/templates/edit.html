@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>메모</title>
+    <title>수정</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
@@ -41,36 +41,21 @@
     </div>
 </nav>
 
+<!--    Restful API Put 메소드 맵핑-->
+<!--    hidden 타입 게시글 id, JPA(BoardRepository.save())에서 insert와 update 같은 메서드 사용-->
+<!--    id 값이 없다면 insert, id 값이 이미 존재한다면 update가 동작 -->
 <div id="background">
-<h2 th:text="${memoDto.title}"></h2>
-<p th:inline="text">작성일 : [[${#temporals.format(memoDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
-<!--th:inline 을 통해 변수값을 삽입-->
+<form th:action="@{'/post/edit/' + ${memoDto.id}}" method="post">
+    <input type="hidden" name="_method" value="put"/>
+    <input type="hidden" name="id" th:value="${memoDto.id}"/>
 
-<p th:text="${memoDto.content}"></p>
+    제목 : <input type="text" name="title" th:value="${memoDto.title}"> <br>
+    태그 : <input type="text" name="tag" th:value="${memoDto.tag}"> <br>
+    <input type="submit" value="수정"> <br>
+    <textarea name="content" th:text="${memoDto.content}"></textarea><br>
 
-<!-- 수정/삭제 -->
-<div>
-    <a th:href="@{'/post/edit/' + ${memoDto.id}}">
-        <button>수정</button>
-    </a>
 
-    <form id="delete-form" th:action="@{'/post/' + ${memoDto.id}}" method="post">
-        <input type="hidden" name="_method" value="delete"/>
-<!--        RESTful API 작성을 위해 hiddenHttpMethodFilter를 이용. form 태그의 method는 post이지만, 실제로는 컨트롤러에서 delete로 매핑이됩니다-->
-        <button id="delete-btn">삭제</button>
-    </form>
+</form>
 </div>
-</div>
-<!-- 변수 셋팅 -->
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    var memoDto = /*[[${memoDto}]]*/ "";
-    /*]]>*/
-
-    // JS에서 Java 변수를 사용하기 위한 방식, 개발자도구 콘솔창에서 memoDto 확인 가능
-</script>
-
-<!-- script -->
-<script th:inline="javascript" th:src="@{/js/memo.js}"></script>
 </body>
 </html>

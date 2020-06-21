@@ -144,3 +144,10 @@ commit 로그의 내용을 기반으로 본인이 직접 개발했는지를 판�
 - detail.html에서 메모를 하나씩 살펴보는 기능입니다.
 - controller 에서 detail 부분에서 맵핑을 했구요
 - MemoService 에서는 getPost를 추가했습니다.
+<hr>
+
+- 메모 수정 기능 완료
+  > 메모 하나 씩 보기 기능(detail.html)에서 수정을 누르면
+post/edit/id 로 가게 되고 post/edit/id로 가면 메모 작성 공간으로 가고, 메모 내용을 불러오게 된다.
+거기서 작업하고 수정을 누르면 memoService.savePost() 가 작동되고
+이미 DB에 존재하는 id 여서 update(수정)으로 처리된다.
