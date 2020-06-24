@@ -165,3 +165,12 @@ post/edit/id 로 가게 되고 post/edit/id로 가면 메모 작성 공간으로
 - 검색 결과 보여주는 view는 momoList.html 재활용
 - Entity를 Dto로 변환하는 부분 함수화
   > 계속 반복 되어서 convertEntityToDto함수로 만들어서 중복 코드 줄임(MemoService.java)         
+### 2020년 6월 25일 목요일
+- laptop에서 시연 가능 한 지 테스트
+- intellij 설치
+- jdk 설치
+- laptop에 mysql 서버 새로 생성
+- mysql server 설정
+- database, table 설정
+- 테스트 -성공
+- UI 고민
