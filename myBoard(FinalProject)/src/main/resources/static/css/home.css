@@ -15,8 +15,16 @@ button {
     height: 1600px;
     background-color: #ecf0f1;
     font-size: 24px;
-    margin: 0 auto;
 }
+
+#backgroundHome {
+    width: 600px;
+    height: 1600px;
+    float: left;
+    background-color: #ecf0f1;
+    font-size: 24px;
+}
+
 
 textarea {
     width: 500px;
@@ -31,4 +39,12 @@ table {
 
 table, th, td {
     border: 1px solid black;
+}
+
+#sideBar {
+    margin-left: 15%;
+    width: 200px;
+    height: 1600px;
+    float: left;
+    background-color: #ecf0f1;
 }

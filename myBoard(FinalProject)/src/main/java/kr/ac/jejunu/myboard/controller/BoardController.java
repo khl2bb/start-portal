@@ -15,8 +15,10 @@ public class BoardController {
     private MemoService memoService;
 
     @GetMapping("/")
-    public String home() { // index, 처음 페이지
+    public String home(Model model) { // index, 처음 페이지
+        List<MemoDto> memoList = memoService.getMemolist();
 
+        model.addAttribute("memoList", memoList);
         return "home.html"; // 리턴 값으로 home.html templates 상대 경로
     }
 
@@ -24,7 +26,7 @@ public class BoardController {
     public String save(MemoDto memoDto) { // .savePost() 사용해서, 저장하기
         memoService.savePost(memoDto);
 
-        return "redirect:/list"; // 리턴 값으로 리다이렉트
+        return "redirect:/"; // 리턴 값으로 리다이렉트
     }
 
     @GetMapping("/list")
@@ -70,6 +72,15 @@ public class BoardController {
     @GetMapping("/search")
     public String search(@RequestParam(value="keyword") String keyword, Model model) { //keyword를 받는 search()
         List<MemoDto> memoDtoList = memoService.searchPosts(keyword); // keyword로 검색
+
+        model.addAttribute("memoList", memoDtoList);
+
+        return "/memoList.html";
+    }
+
+    @GetMapping("/tagsearch")
+    public String tagsearch(@RequestParam(value="tag") String tag, Model model) { // tag를 받는 search()
+        List<MemoDto> memoDtoList = memoService.searchTagPosts(tag); // tag 검색
 
         model.addAttribute("memoList", memoDtoList);
 

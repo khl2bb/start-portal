@@ -61,6 +61,20 @@ public class MemoService {
         return memoDtoList;
     }
 
+    @Transactional
+    public List<MemoDto> searchTagPosts(String keyword) { // Repository 검색 결과 받아와서 수행, Dto 객체 전달
+        List<MemoEntity> memoEntities = memoRepository.findByTagContaining(keyword);
+        List<MemoDto> memoDtoList = new ArrayList<>();
+
+        if (memoEntities.isEmpty()) return memoDtoList;
+
+        for (MemoEntity memoEntity : memoEntities) {
+            memoDtoList.add(this.convertEntityToDto(memoEntity));
+        }
+
+        return memoDtoList;
+    }
+
     private MemoDto convertEntityToDto(MemoEntity memoEntity) { //  Entity를 Dto로 변환하는 작업 함수화
         return MemoDto.builder()
                 .id(memoEntity.getId())

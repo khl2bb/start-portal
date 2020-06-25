@@ -11,4 +11,5 @@ public interface MemoRepository extends JpaRepository<MemoEntity, Long> { // Jpa
     List<MemoEntity> findByTitleContaining(String keyword); // JpaRepository 메소드, By 이후는 SQl where 조건에 대응됨, Containing -> like 검색
     // %{keyword}%
     // JpaRepository에 일반적으로 사용하는 데이터 조작 함수가 정의되어 있음. CRUD
+    List<MemoEntity> findByTagContaining(String tag);
 }

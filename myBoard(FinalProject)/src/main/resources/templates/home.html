@@ -12,7 +12,7 @@
 
 <!--bootstrap에서 가져온 헤더, 네비게이션 바-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Kakao Ara In</a>
+    <a class="navbar-brand ml-auto" href="/">Kakao Ara In</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,27 +37,62 @@
 <!--                </div>-->
 <!--            </li>-->
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+        <form class="form-inline my-2 my-lg-0" action="/tagsearch" method="GET">
             <div>
-                <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="검색어를 입력해주세요" aria-label="Search">
+                <input class="form-control mr-sm-2" name="tag" type="text" placeholder="태그를 입력해주세요" aria-label="Search">
             </div>
 
-            <button class="btn btn-outline-success my-2 my-sm-0">검색하기</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-2">태그 검색</button>
+        </form>
+
+        <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+            <div>
+                <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="제목을 입력해주세요" aria-label="Search">
+            </div>
+
+            <button class="btn btn-outline-success my-2 my-lg-0 mr-2">제목 검색</button>
         </form>
     </div>
 </nav>
+<div id="sideBar">
+    <table>
+        <thead>
+        <tr>
+            <th class="two wide">번호</th>
+            <th class="ten wide">제목</th>
+            <th class="ten wide">태그</th>
+        </tr>
+        </thead>
 
+        <tbody>
+        <!-- CONTENTS !-->
+        <tr th:each="memo : ${memoList}">
+            <td>
+                <span th:text="${memo.id}"></span>
+            </td>
+            <td>
+                <a th:href="@{'/post/' + ${memo.id}}">
+                    <span th:text="${memo.title}"></span>
+                    <!--                memo.title의 값을 span 태그의 text값으로 설정-->
+                </a>
+            </td>
+            <td>
+                <span th:text="${memo.tag}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
-<div id="background">
+<div id="backgroundHome">
     <div>
         <div>안녕 내 게시판</div>
 
         <form action="/post" method="post">
             제목 : <input type="text" name="title" /> <br />
             태그 : <input type="text" name="tag" /> <br />
-            <button id="saveButton">저장!!!</button><br />
             <textarea name="content"></textarea>
-
+            <button id="saveButton">저장!!!</button><br />
         </form>
 
 

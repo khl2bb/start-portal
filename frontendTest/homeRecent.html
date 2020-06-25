@@ -1,69 +1,80 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
-<!--xmlns:th="http://www.w3.org/1999/xhtml 이 부분은 인텔리제이 thymeleaf 사용 시 삽입해야 되는 듯-->
-<head>
-    <meta charset="UTF-8">
+  <!--xmlns:th="http://www.w3.org/1999/xhtml 이 부분은 인텔리제이 thymeleaf 사용 시 삽입해야 되는 듯-->
+  <head>
+    <meta charset="UTF-8" />
     <title>내 게시판</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/home.css">
-<!--    th는 thymeleaf 속성 @{}는 애플리케이션 설치된 곳을 기준으로 하는 상대경로 입력가능-->
-</head>
-<body>
-
-<!--bootstrap에서 가져온 헤더, 네비게이션 바-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Kakao Ara In</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <!--    th는 thymeleaf 속성 @{}는 애플리케이션 설치된 곳을 기준으로 하는 상대경로 입력가능-->
+  </head>
+  <body>
+    <!--bootstrap에서 가져온 헤더, 네비게이션 바-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Kakao Ara In</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
-    </button>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">홈 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/list">메모 목록</a>
-            </li>
-<!--            <li class="nav-item dropdown">-->
-<!--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                    Dropdown-->
-<!--                </a>-->
-<!--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--                    <a class="dropdown-item" href="#">Action</a>-->
-<!--                    <a class="dropdown-item" href="#">Another action</a>-->
-<!--                    <div class="dropdown-divider"></div>-->
-<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
-<!--                </div>-->
-<!--            </li>-->
+          <li class="nav-item active">
+            <a class="nav-link" href="/"
+              >홈 <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/list">메모 목록</a>
+          </li>
+          <!--            <li class="nav-item dropdown">-->
+          <!--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+          <!--                    Dropdown-->
+          <!--                </a>-->
+          <!--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+          <!--                    <a class="dropdown-item" href="#">Action</a>-->
+          <!--                    <a class="dropdown-item" href="#">Another action</a>-->
+          <!--                    <div class="dropdown-divider"></div>-->
+          <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+          <!--                </div>-->
+          <!--            </li>-->
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
-            <div>
-                <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="검색어를 입력해주세요" aria-label="Search">
-            </div>
+          <div>
+            <input
+              class="form-control mr-sm-2"
+              name="keyword"
+              type="text"
+              placeholder="검색어를 입력해주세요"
+              aria-label="Search"
+            />
+          </div>
 
-            <button class="btn btn-outline-success my-2 my-sm-0">검색하기</button>
+          <button class="btn btn-outline-success my-2 my-sm-0">검색하기</button>
         </form>
-    </div>
-</nav>
-
-
-<div id="background">
-    <div>
+      </div>
+    </nav>
+    <div id="sideBar"></div>
+    <div id="background">
+      <div>
         <div>안녕 내 게시판</div>
 
         <form action="/post" method="post">
-            제목 : <input type="text" name="title" /> <br />
-            태그 : <input type="text" name="tag" /> <br />
-            <button id="saveButton">저장!!!</button><br />
-            <textarea name="content"></textarea>
-
+          제목 : <input type="text" name="title" /> <br />
+          태그 : <input type="text" name="tag" /> <br />
+          <button id="saveButton">저장!!!</button><br />
+          <textarea name="content"></textarea>
         </form>
-
-
+      </div>
     </div>
-</div>
 
-<script src="./js/save.js"></script>
-</body>
+    <script src="./js/save.js"></script>
+  </body>
 </html>
