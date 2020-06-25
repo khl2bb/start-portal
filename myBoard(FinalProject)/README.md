@@ -180,3 +180,6 @@ post/edit/id 로 가게 되고 post/edit/id로 가면 메모 작성 공간으로
   > 메모를 저장하면서 목록을 옆에서 같이 볼 수 있고, 저장되는 게 눈으로 보이게끔
 - 태그 기반 검색 추가, BoradController, MemoService MemoRepository 에 내용 추가
 - css 좀 변경
+<hr>
+
+- nav바를 header.html에 넣어서 수정을 편하게 하기 위해
