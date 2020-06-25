@@ -4,6 +4,9 @@ import kr.ac.jejunu.myboard.dto.MemoDto;
 import kr.ac.jejunu.myboard.entitiy.MemoEntity;
 import kr.ac.jejunu.myboard.repository.MemoRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -23,8 +26,12 @@ public class MemoService {
     }
 
     @Transactional
-    public List<MemoDto> getMemolist() { // 메모 조회, getMemoList
-        List<MemoEntity> memoEntities = memoRepository.findAll();
+    public List<MemoDto> getMemolist(Integer pageNum) { // 메모 조회, getMemoList
+        //Pagable 인터페이스 구현한 클래스 PageRequest of 
+        Page<MemoEntity> page = memoRepository.findAll(PageRequest.of(pageNum - 1, PAGE_POST_COUNT, Sort.by(Sort.Direction.ASC, "createdDate"))); //repository find할때 가져옴
+        // PageRequest.of(limit , offset 몇 개 가져올거, createDate 컬럼을 기준으로 오름차순)
+        
+        List<MemoEntity> memoEntities = page.getContent();
         List<MemoDto> memoDtoList = new ArrayList<>();
 
         for ( MemoEntity memoEntity : memoEntities) {
@@ -75,6 +82,41 @@ public class MemoService {
         return memoDtoList;
     }
 
+    private static final int BLOCK_PAGE_NUM_COUNT = 10;  // 블럭에 존재하는 페이지 번호 수
+    private static final int PAGE_POST_COUNT = 10;       // 한 페이지에 존재하는 메모 수
+
+
+
+    @Transactional
+    public Long getMemoCount() { // 전체 메모 개수 가져왓
+        return memoRepository.count();
+    }
+
+    public Integer[] getPageList(Integer curPageNum) { // 표시될 페이지 번호 계산
+        Integer[] pageList = new Integer[BLOCK_PAGE_NUM_COUNT];
+
+        // 총 메모 갯수
+        Double postsTotalCount = Double.valueOf(this.getMemoCount());
+
+        // 총 메모 중 마지막 페이지 번호 계산 (올림으로 계산)
+        Integer totalLastPageNum = (int) (Math.ceil((postsTotalCount / PAGE_POST_COUNT)));
+
+        // 현재 페이지를 기준으로 메모 마지막 페이지 번호 계산
+        Integer blockLastPageNum = (totalLastPageNum > curPageNum + BLOCK_PAGE_NUM_COUNT)
+                ? curPageNum + BLOCK_PAGE_NUM_COUNT
+                : totalLastPageNum;
+
+        // 페이지 시작 번호 조정
+        curPageNum = (curPageNum <= 3) ? 1 : curPageNum - 2;
+
+        // 페이지 번호 할당
+        for (int val = curPageNum, idx = 0; val <= blockLastPageNum; val++, idx++) {
+            pageList[idx] = val;
+        }
+
+        return pageList;
+    }
+
     private MemoDto convertEntityToDto(MemoEntity memoEntity) { //  Entity를 Dto로 변환하는 작업 함수화
         return MemoDto.builder()
                 .id(memoEntity.getId())
@@ -84,6 +126,5 @@ public class MemoService {
                 .createdDate(memoEntity.getCreatedDate())
                 .build();
     }
-
 
 }

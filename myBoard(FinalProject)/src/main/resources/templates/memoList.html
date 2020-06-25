@@ -44,6 +44,11 @@
     </tr>
     </tbody>
 </table>
+    <div>
+    <span th:each="pageNum : ${pageList}" th:inline="text">
+        <a th:href="@{'/list?page=' + ${pageNum}}">[[${pageNum}]]</a>
+    </span>
+    </div>
 </div>
 
 

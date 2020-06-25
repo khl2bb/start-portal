@@ -183,3 +183,8 @@ post/edit/id 로 가게 되고 post/edit/id로 가면 메모 작성 공간으로
 <hr>
 
 - nav바를 header.html에 넣어서 수정을 편하게 하기 위해
+<hr>
+
+- 메모가 많아질 경우를 대비하여, 페이지 기능 만들기
+- BoardController의 메모리스트부분
+- MemoService 에서 페이지 구하고 처리하는 기능 잔뜩 추가

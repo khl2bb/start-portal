@@ -16,7 +16,7 @@ public class BoardController {
 
     @GetMapping("/")
     public String home(Model model) { // index, 처음 페이지
-        List<MemoDto> memoList = memoService.getMemolist();
+        List<MemoDto> memoList = memoService.getMemolist(1);
 
         model.addAttribute("memoList", memoList);
         return "home.html"; // 리턴 값으로 home.html templates 상대 경로
@@ -30,10 +30,12 @@ public class BoardController {
     }
 
     @GetMapping("/list")
-    public String list(Model model) { // 전체 메모 불러와서 리스트로 보여주기
-        List<MemoDto> memoList = memoService.getMemolist();
+    public String list(Model model, @RequestParam(value="page", defaultValue = "1") Integer pageNum) { // 전체 메모 불러와서 리스트로 보여주기
+        List<MemoDto> memoList = memoService.getMemolist(pageNum);
+        Integer[] pageList = memoService.getPageList(pageNum); // page 이름이 넘어오면 파라미터 받기, 기본 값 1, 페이지 번호 넘기기, getPageList
 
         model.addAttribute("memoList", memoList);
+        model.addAttribute("pageList", pageList);
         return "memolist.html";
     }
 
