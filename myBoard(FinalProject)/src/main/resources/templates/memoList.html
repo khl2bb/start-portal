@@ -27,7 +27,9 @@
     <!-- CONTENTS !-->
     <tr th:each="memo : ${memoList}">
         <td>
-            <span th:text="${memo.id}"></span>
+            <a th:href="@{'/post/' + ${memo.id}}">
+                <span th:text="${memo.id}"></span>
+            </a>
         </td>
         <td>
             <a th:href="@{'/post/' + ${memo.id}}">
@@ -36,10 +38,14 @@
             </a>
         </td>
         <td>
-            <span th:text="${memo.tag}"></span>
+            <a th:href="@{'/post/' + ${memo.id}}">
+             <span th:text="${memo.tag}"></span>
+            </a>
         </td>
         <td>
+            <a th:href="@{'/post/' + ${memo.id}}">
             <span th:text="${#temporals.format(memo.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+            </a>
         </td>
     </tr>
     </tbody>

@@ -11,18 +11,20 @@ button {
 }
 
 #background {
-    width: 600px;
+    width: 500px;
     height: 1600px;
     background-color: #ecf0f1;
     font-size: 24px;
 }
 
 #backgroundHome {
-    width: 600px;
+    width: 500px;
     height: 1600px;
     float: left;
     background-color: #ecf0f1;
     font-size: 24px;
+    margin-left: 5%;
+    border-radius: 5px;
 }
 
 
@@ -42,9 +44,10 @@ table, th, td {
 }
 
 #sideBar {
-    margin-left: 20%;
+    margin-left: 8%;
     width: 200px;
     height: 1600px;
     float: left;
     background-color: #ecf0f1;
+
 }
