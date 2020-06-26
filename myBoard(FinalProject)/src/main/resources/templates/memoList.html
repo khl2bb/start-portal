@@ -38,7 +38,7 @@
             </a>
         </td>
         <td>
-            <a th:href="@{'/post/' + ${memo.id}}">
+            <a th:href="@{'/tagsearch?tag=' + ${memo.tag}}">
              <span th:text="${memo.tag}"></span>
             </a>
         </td>
