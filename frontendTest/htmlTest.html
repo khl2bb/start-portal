@@ -1,16 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>test</title>
-	</head>
-	<body>
-		<h1>this is index</h1>
-		<ul>
-			<li>
-				<a href="/user/1">1</a>
-			</li>
-		</ul>
-	</body>
+<html>
+  <head>
+    <title>ctrlKey example</title>
+
+    <script type="text/javascript">
+      function showChar(e) {
+        e.preventDefault();
+        alert(
+          'Key Pressed: ' +
+            e.key +
+            '\n' +
+            'CTRL key pressed: ' +
+            e.ctrlKey +
+            '\n',
+        );
+      }
+    </script>
+  </head>
+
+  <body onkeypress="showChar(event);">
+    <p>
+      Press any character key, with or without holding down the CTRL key.<br />
+      You can also use the SHIFT key together with the CTRL key.
+    </p>
+  </body>
 </html>
